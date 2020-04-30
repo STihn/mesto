@@ -1,0 +1,18 @@
+.pop-up__input-container {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    margin: 0 2.25rem 1.25rem;
+    max-width: 22.37rem;
+    padding: 0;
+}
+
+.pop-up__input-container:last-of-type {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 560px) {
+    .pop-up__input-container {
+       max-width: 14rem;
+       margin-right: 0;
+    }
+}

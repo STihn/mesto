@@ -1,0 +1,12 @@
+.page {
+    min-width: 20rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Inter','Arial', sans-serif;
+    background: #000000;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}

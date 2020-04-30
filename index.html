@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Сергей Тихонов">
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header - Шапка сайта -->
+        <header class="header wrapper">
+            <img class="header__logo" src="images/logo.svg" alt="Лототип" title="Лототип">
+        </header>
+        <main class="content">
+            <!-- Профиль пользователя -->
+            <section class="profile wrapper">
+                <div class="profile__wrap">
+                    <img class="profile__userpic" src="images/image.jpg" alt="Профиль пользователя" title="Профиль пользователя">
+                    <div class="profile__info">
+                        <div class="profile__inner">
+                            <p class="profile__name">Жак-Ив Кусто</p>
+                            <Button type="button"  class="profile__editButton"></Button>
+                        </div>
+                        <p class="profile__specialty">Исследователь океана</p>
+                    </div>
+                </div>
+                <Button type="button"  class="profile__addButton"></Button>
+            </section>
+            <!-- Grid image - Сетка с элементами -->
+            <section class="elements wrapper">
+                <div class="element">
+                   <img class="element__image" src="images/Карачаевск.jpg" alt="Картинка - Карачаевск" title="Картинка - Карачаевск">
+                   <div class="element__wrap">
+                        <span class="element__text">Карачаевск</span>
+                        <button type="button" class="element__btnLike"></button>
+                   </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="images/Эльбрус.jpg" alt="Картинка - гора Эльбрус" title="Картинка - гора Эльбрус">
+                    <div class="element__wrap">
+                         <span class="element__text">Гора Эльбрус</span>
+                         <button type="button" class="element__btnLike"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="images/Домбай.jpg" alt="Картинка - Домбай" title="Картинка - Домбай">
+                    <div class="element__wrap">
+                         <span class="element__text">Домбай</span>
+                         <button type="button" class="element__btnLike"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="images/Эльбрус.jpg" alt="Картинка - гора Эльбрус" title="Картинка - гора Эльбрус">
+                    <div class="element__wrap">
+                         <span class="element__text">Гора Эльбрус</span>
+                         <button type="button" class="element__btnLike"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="images/Домбай.jpg" alt="Картинка - Домбай" title="Картинка - Домбай">
+                    <div class="element__wrap">
+                         <span class="element__text">Домбай</span>
+                         <button type="button" class="element__btnLike"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__image" src="images/Карачаевск.jpg" alt="Картинка - Карачаевск" title="Картинка - Карачаевск">
+                    <div class="element__wrap">
+                         <span class="element__text">Карачаево-Ч...</span>
+                         <button type="button" class="element__btnLike"></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer - Подвал сайта -->
+        <footer class="footer wrapper">
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+        <!-- pop-up всплывающее окно -->
+        <div class="pop-up">
+            <div class="pop-up__container">
+                <button type="button" class="pop-up__btnClose"></button>
+                <form class="pop-up__form">
+                    <h2 class="pop-up__heading">Редактировать профиль</h2>
+                    <fieldset class="pop-up__input-container">
+                        <input type="text" class="pop-up__input pop-up__input_name" placeholder="Имя">
+                    </fieldset>
+                    <fieldset class="pop-up__input-container">
+                        <input type="text" class="pop-up__input pop-up__input_specialty" placeholder="Специальность">
+                    </fieldset>
+                    <button type="submit" class="pop-up__btnSubmit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/showModalProfile.js"></script>
+</body>
+</html>
