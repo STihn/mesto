@@ -1,6 +1,6 @@
 .profile__editButton {
     cursor: pointer;
-    background: url(/images/Edit-Button.svg) center no-repeat;
+    background: url(../../../images/Edit-Button.svg) center no-repeat;
     width: 24px;
     height: 24px;
     border: none;
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 478px) {
     .profile__editButton {
-        background: url(/images/Edit-Button-320.svg) center no-repeat;
+        background: url(../../../images/Edit-Button-320.svg) center no-repeat;
         width: 18px;
         height: 18px;
     }

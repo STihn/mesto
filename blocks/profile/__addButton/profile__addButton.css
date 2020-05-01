@@ -3,7 +3,7 @@
     min-height: 3.12rem;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
-    background: url(/images/plus.svg) center no-repeat;
+    background: url(../../../images/plus.svg) center no-repeat;
     cursor: pointer;
     align-self: center;
 }
