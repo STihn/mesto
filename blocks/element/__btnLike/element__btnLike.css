@@ -1,6 +1,6 @@
 .element__btnLike {
     cursor: pointer;
-    background: url(/images/like.svg) center no-repeat;
+    background: url(../../../images/like.svg) center no-repeat;
     width: 21px;
     height: 19px;
     border: none;
