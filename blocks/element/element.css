@@ -1,7 +1,7 @@
-@import url(./__image/element__image.css);
-@import url(./__wrap/element__wrap.css);
-@import url(./__text/element__text.css);
-@import url(./__btnLike/element__btnLike.css);
+@import url(__image/element__image.css);
+@import url(__wrap/element__wrap.css);
+@import url(__text/element__text.css);
+@import url(__btnLike/element__btnLike.css);
 
 
 .element {

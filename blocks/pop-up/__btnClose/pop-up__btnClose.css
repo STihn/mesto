@@ -1,17 +1,17 @@
 .pop-up__btnClose {
     cursor: pointer;
-    background: url(../../../images/Close-icon.png) center no-repeat;
+    background: url(../../../images/close-icon.svg) center no-repeat;
     width: 41px;
     height: 41px;
     position: absolute;
     top: -38px;
-    left: 427px;
+    right: -38px;
     border: none;
 }
 
 .pop-up__btnClose:hover {
-    filter: brightness(60%);
-    transition: filter ease .5s;
+    opacity: 0.6;
+    transition: opacity ease .5s;
 }
 
 @media screen and (max-width: 560px) {

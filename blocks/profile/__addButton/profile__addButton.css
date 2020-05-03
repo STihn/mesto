@@ -9,8 +9,8 @@
 }
 
 .profile__addButton:hover {
-    filter: brightness(60%);
-    transition: filter ease .5s;
+    opacity: 0.6;
+    transition: opacity ease .5s;
 }
 
 @media screen and (max-width: 478px) {

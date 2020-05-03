@@ -1,7 +1,7 @@
 .footer__copyright {
     max-width: 19.87rem;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     color: #545454;
@@ -11,5 +11,8 @@
 @media screen and (max-width: 478px) {
     .footer__copyright {
         padding-left: 1rem;
+        max-width: 17.62rem;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

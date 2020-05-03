@@ -4,6 +4,24 @@
     width: 100%;
 }
 
+@media screen and (max-width: 942px) {
+    .wrapper {
+        max-width: 43rem;
+    }
+ }
+
+ @media screen and (max-width: 750px) {
+    .wrapper {
+        max-width: 37rem;
+    }
+ }
+
+ @media screen and (max-width: 640px) {
+    .wrapper {
+        max-width: 28rem;
+    }
+ }
+
 @media screen and (max-width: 478px) {
     .wrapper {
         max-width: 20rem;

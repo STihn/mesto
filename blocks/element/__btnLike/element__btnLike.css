@@ -7,3 +7,7 @@
     align-self: center;
 }
 
+.element__btnLike:hover {
+    opacity: 0.6;
+    transition: opacity ease .5s;
+}

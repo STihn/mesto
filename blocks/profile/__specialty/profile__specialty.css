@@ -1,6 +1,6 @@
 .profile__specialty {
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 1.12rem;
     line-height: 22px;
     color: #FFFFFF;
@@ -8,6 +8,12 @@
     margin: 0;
     word-break: break-all;
 }
+
+@media screen and (max-width: 673px) {
+    .profile__specialty {
+        text-align: center;
+    }
+ }
 
 @media screen and (max-width: 478px) {
     .profile__specialty {
