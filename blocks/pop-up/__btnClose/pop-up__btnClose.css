@@ -16,13 +16,13 @@
 
 @media screen and (max-width: 560px) {
     .pop-up__btnClose {
-       left: 280px;
-       top: -45px;
+       right: 0px;
+       top: -60px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .pop-up__btnClose {
-       left: 270px;
+       right: 10px;
     }
 }

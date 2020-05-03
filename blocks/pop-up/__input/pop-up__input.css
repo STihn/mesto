@@ -5,12 +5,20 @@
     line-height: 17px;
     color: #000000;
     border: none;
-    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    max-width: 22.37rem;
+    margin: 0 2.25rem 1.25rem;
     padding: .31rem .31rem .81rem;
+}
+
+.pop-up__input:last-of-type {
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 560px) {
     .pop-up__input {
-       width: 96%;
+       max-width: 14rem;
+       margin-right: 0;
     }
 }
+
