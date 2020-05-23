@@ -2,6 +2,8 @@
 @import url(__wrap/element__wrap.css);
 @import url(__text/element__text.css);
 @import url(__btnLike/element__btnLike.css);
+@import url(__btnLike/_active/element__btnLike_active.css);
+@import url(__btnDelete/element__btnDelete.css);
 
 
 .element {
@@ -12,4 +14,5 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }

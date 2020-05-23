@@ -14,15 +14,11 @@
     transition: opacity ease .5s;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 380px) {
     .pop-up__btnClose {
-       right: 0px;
-       top: -60px;
+        width: 30px;
+        height: 30px;
+        right: -30px;
     }
 }
 
-@media screen and (max-width: 350px) {
-    .pop-up__btnClose {
-       right: 10px;
-    }
-}

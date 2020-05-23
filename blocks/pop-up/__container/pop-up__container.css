@@ -10,6 +10,18 @@
 
 @media screen and (max-width: 560px) {
     .pop-up__container {
-        max-width: 20rem;
+        max-width: 24rem;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .pop-up__container {
+       max-width: 19rem;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .pop-up__container {
+       max-width: 15rem;
     }
 }

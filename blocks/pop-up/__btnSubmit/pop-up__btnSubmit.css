@@ -1,16 +1,17 @@
 .pop-up__btnSubmit {
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 1.12rem;
     line-height: 22px;
     text-align: center;
     color: #FFFFFF;
-    max-width: 22.37rem;
+    width: 100%;
     background: #000000;
     border-radius: 2px;
-    padding: .87rem 8.37rem;
+    padding: .87rem 0;
     border: none;
-    margin: 2.81rem 2.25rem 2.26rem;
+    margin: 2.81rem auto 2.26rem;
     cursor: pointer;
 }
 
@@ -19,9 +20,11 @@
     transition: opacity ease .3s;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 410px) {
     .pop-up__btnSubmit {
-       max-width: 14rem;
-       padding: .87rem 4.5rem;
+        font-size: .87rem;
+        line-height: 17px;
+        margin-top: 2.25rem;
+        margin-bottom: 1.87rem;
     }
 }

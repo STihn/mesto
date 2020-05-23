@@ -1,0 +1,13 @@
+.pop-up__wrap {
+    margin:0 auto;
+    position: relative;
+    display: flex;
+    max-width: 75vh;
+    max-height: 75vh;
+}
+
+@media screen and (max-width: 375px) {
+    .pop-up__wrap {
+        max-width: 47vh;
+    }
+}
