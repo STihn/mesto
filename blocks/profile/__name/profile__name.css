@@ -6,7 +6,9 @@
     color: #FFFFFF;
     max-width: 18.43rem;
     margin: 0 1rem 0 0;
-    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 478px) {

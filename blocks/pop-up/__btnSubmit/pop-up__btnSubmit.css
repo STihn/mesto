@@ -20,6 +20,11 @@
     transition: opacity ease .3s;
 }
 
+.pop-up__btnSubmit:focus {
+    outline: none;
+}
+
+
 @media screen and (max-width: 410px) {
     .pop-up__btnSubmit {
         font-size: .87rem;

@@ -11,6 +11,10 @@
     transition: opacity ease .5s;
 }
 
+.profile__editButton:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 478px) {
     .profile__editButton {
         background: url(../../../images/edit320.svg) center no-repeat;

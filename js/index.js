@@ -49,15 +49,17 @@ function addCard() {
     initialCards.forEach(function(item) {
         cardCaption.value = item.name;
         cardImage.value = item.link;
-        
+        return renderCard(cardCaption, cardImage);
+    });
+
+    function renderCard(cardCaption, cardImage) {
         const cardTemplate = document.querySelector('#card').content;
         const cardElement = cardTemplate.cloneNode(true);
-        let cardContainer = document.querySelector('.elements');
         cardElement.querySelector('.element__text').textContent = cardCaption.value;
         cardElement.querySelector('.element__image').src = cardImage.value;
         cardElement.querySelector('.element__image').alt = cardCaption.value;
-        cardContainer.append(cardElement);
-    });
+        elements.append(cardElement);
+    };
 };
 addCard();
 
@@ -68,7 +70,7 @@ function editProfile() {
 };
 
 function clouseProfile(event) {
-    let target = event.target;
+    const target = event.target;
     if(target.getAttribute('name') == 'closeEditProfile'){
         showProfile.classList.remove('pop-up_opened');
     }
@@ -97,17 +99,27 @@ closeEditProfile[1].addEventListener('click', clouseProfile);
 closeEditProfile[2].addEventListener('click', clouseProfile);
 profileAddButton.addEventListener('click', showModalWindowAddCard);
 
-function formSubmitHandler (evt) {
+function addCardClickSubmitForm(cardCaptionValue, cardImageValue) {
+
+    const cardTemplate = document.querySelector('#card').content;
+    const cardElement = cardTemplate.cloneNode(true);
+    cardElement.querySelector('.element__text').textContent = cardCaption.value;
+    cardElement.querySelector('.element__image').src = cardImage.value;
+    cardElement.querySelector('.element__image').alt = cardCaption.value;
+    elements.prepend(cardElement);
+}
+
+function formSubmitHandler(evt) {
     evt.preventDefault(); 
     
     profileName.textContent = nameInput.value;
     profileSpecialty.textContent = jobInput.value;
 };
 
-function formSubmitAddCard (evt) {
+function formSubmitAddCard(evt) {
     evt.preventDefault(); 
 
-    addCardClickSubmitForm (cardCaption.value, cardImage.value);
+    addCardClickSubmitForm(cardCaption.value, cardImage.value);
 };
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -122,21 +134,10 @@ function submitCloseModalWindowAddCard() {
 }
 
 submitCloseModal.addEventListener('click', submitCloseModalWindow);
-formElementAddCard.lastElementChild.addEventListener('click',  submitCloseModalWindowAddCard);
-
-function addCardClickSubmitForm (cardCaptionValue, cardImageValue) {
-
-    const cardTemplate = document.querySelector('#card').content;
-    const cardElement = cardTemplate.cloneNode(true);
-    let cardContainer = document.querySelector('.elements');
-    cardElement.querySelector('.element__text').textContent = cardCaption.value;
-    cardElement.querySelector('.element__image').src = cardImage.value;
-    cardElement.querySelector('.element__image').alt = cardCaption.value;
-    cardContainer.prepend(cardElement);
-}
+formElementAddCard.lastElementChild.addEventListener('click', submitCloseModalWindowAddCard);
 
 elements.addEventListener('click', function (event) {
-    let target = event.target;
+    const target = event.target;
     if (target.getAttribute('name') == 'btnLike') {
         target.classList.toggle('element__btnLike_active');
     }

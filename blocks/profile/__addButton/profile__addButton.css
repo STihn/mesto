@@ -13,6 +13,11 @@
     transition: opacity ease .5s;
 }
 
+.profile__addButton:focus {
+    outline: none;
+}
+
+
 @media screen and (max-width: 478px) {
     .profile__addButton {
        width: 17.6rem;

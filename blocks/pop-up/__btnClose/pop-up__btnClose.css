@@ -14,6 +14,10 @@
     transition: opacity ease .5s;
 }
 
+.pop-up__btnClose:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 380px) {
     .pop-up__btnClose {
         width: 30px;
