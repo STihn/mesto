@@ -44,13 +44,7 @@ const initialCards = [
     }
 ];
 
-initialCards.forEach(function(item) {
-    cardCaption.value = item.name;
-    cardImage.value = item.link;
-    return getCard(cardCaption.value, cardImage.value);
-});
-
-function getCard(cardCaption, cardImage, tag) {
+function getCard(cardCaption, cardImage) {
     const cardTemplate = document.querySelector('#card').content;
     const cardElement = cardTemplate.cloneNode(true);
     cardElement.querySelector('.element__text').textContent = cardCaption;
@@ -59,14 +53,19 @@ function getCard(cardCaption, cardImage, tag) {
         cardElement.querySelector('.element__image').alt = 'Картинка не загрузилась';
     } else {
         cardElement.querySelector('.element__image').alt = cardCaption;
-     }
-    return renderCard(cardElement, tag);
+    }
+    return cardElement;
 };
 
-function renderCard(cardElement, tag) {
-      if(tag == 'FORM') elements.prepend(cardElement); 
-      elements.append(cardElement);
+function renderCard(getCard) {
+    elements.append(getCard);
 };
+
+initialCards.forEach(function(item) {
+    cardCaption.value = item.name;
+    cardImage.value = item.link;
+    renderCard(getCard(cardCaption.value, cardImage.value));
+});
 
 function editProfile() {
     showProfile.classList.add('pop-up_opened');
@@ -114,9 +113,7 @@ function formSubmitHandler(evt) {
 function formSubmitAddCard(evt) {
     evt.preventDefault(); 
 
-    const tag = event.target.tagName;
-    
-    getCard(cardCaption.value, cardImage.value, tag);
+    elements.prepend(getCard(cardCaption.value, cardImage.value));
 };
 
 formElement.addEventListener('submit', formSubmitHandler);
