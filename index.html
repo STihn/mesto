@@ -39,7 +39,7 @@
         <footer class="footer wrapper">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
-        <!-- Template - строки -->
+        <!-- Template - шаблон -->
         <template id="card">
             <article class="element">
                 <button type="button" name="btnDelete" class="element__btnDelete"></button>
@@ -51,13 +51,15 @@
             </article>
         </template>
         <!-- pop-up всплывающее окно редактирования профиля -->
-        <div class="pop-up">
+        <div class="pop-up" >
             <div class="pop-up__container">
                 <button type="button" name="closeEditProfile" class="pop-up__btnClose"></button>
-                <form name="formEditProfile" class="pop-up__form">
+                <form name="formEditProfile" class="pop-up__form" novalidate>
                     <h2 class="pop-up__heading">Редактировать профиль</h2>
-                    <input type="text" name="inputName" class="pop-up__input pop-up__input_name" placeholder="Имя">
-                    <input type="text" name="inputSpecialty" class="pop-up__input pop-up__input_specialty" placeholder="Специальность">
+                    <input type="text" name="inputName" id="pop-up__input_name" class="pop-up__input pop-up__input_name" placeholder="Имя" minlength="2" maxlength="40" required>
+                    <span id="pop-up__input_name-error" class="pop-up__input-error"></span>
+                    <input type="text" name="inputSpecialty" id="pop-up__input_specialty" class="pop-up__input pop-up__input_specialty" placeholder="Специальность" minlength="2" maxlength="200" required>
+                    <span id="pop-up__input_specialty-error" class="pop-up__input-error"></span>
                     <button type="submit" name="save" class="pop-up__btnSubmit">Сохранить</button>
                 </form>
             </div>
@@ -66,10 +68,12 @@
         <div class="pop-up pop-up_addCard">
             <div class="pop-up__container">
                 <button type="button" name="closeAddCard" class="pop-up__btnClose"></button>
-                <form name="formAddCard" class="pop-up__form pop-up__form-addCard">
+                <form name="formAddCard" class="pop-up__form pop-up__form-addCard" novalidate>
                     <h2 class="pop-up__heading">Новое место</h2>
-                    <input type="text" name="inputCaption" class="pop-up__input pop-up__input_caption" placeholder="Название">
-                    <input type="src" name="inputPathImage" class="pop-up__input pop-up__input_image" placeholder="Ссылку на картинку">
+                    <input type="text" name="inputCaption" id="pop-up__input_caption" class="pop-up__input pop-up__input_caption" placeholder="Название" minlength="1" maxlength="30" required>
+                    <span id="pop-up__input_caption-error" class="pop-up__input-error"></span>
+                    <input type="url" name="inputPathImage" id="pop-up__input_image" class="pop-up__input pop-up__input_image" placeholder="Ссылка на картинку" required>
+                    <span id="pop-up__input_image-error" class="pop-up__input-error"></span>
                     <button type="submit" name="create" class="pop-up__btnSubmit">Создать</button>
                 </form>
             </div>
@@ -86,5 +90,6 @@
         </div>
     </div>
 <script src="js/index.js"></script>
+<script src="js/validate.js"></script>
 </body>
 </html>
