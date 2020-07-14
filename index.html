@@ -51,16 +51,16 @@
             </article>
         </template>
         <!-- pop-up всплывающее окно редактирования профиля -->
-        <div class="pop-up" >
+        <div class="pop-up pop-up_editProfile">
             <div class="pop-up__container">
                 <button type="button" name="closeEditProfile" class="pop-up__btnClose"></button>
-                <form name="formEditProfile" class="pop-up__form" novalidate>
+                <form name="formEditProfile" class="pop-up__form pop-up__form_editProfile" novalidate>
                     <h2 class="pop-up__heading">Редактировать профиль</h2>
                     <input type="text" name="inputName" id="pop-up__input_name" class="pop-up__input pop-up__input_name" placeholder="Имя" minlength="2" maxlength="40" required>
                     <span id="pop-up__input_name-error" class="pop-up__input-error"></span>
                     <input type="text" name="inputSpecialty" id="pop-up__input_specialty" class="pop-up__input pop-up__input_specialty" placeholder="Специальность" minlength="2" maxlength="200" required>
                     <span id="pop-up__input_specialty-error" class="pop-up__input-error"></span>
-                    <button type="submit" name="save" class="pop-up__btnSubmit">Сохранить</button>
+                    <button type="submit" name="save" disabled class="pop-up__btnSubmit pop-up__btnSubmit_inactive">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <span id="pop-up__input_caption-error" class="pop-up__input-error"></span>
                     <input type="url" name="inputPathImage" id="pop-up__input_image" class="pop-up__input pop-up__input_image" placeholder="Ссылка на картинку" required>
                     <span id="pop-up__input_image-error" class="pop-up__input-error"></span>
-                    <button type="submit" name="create" class="pop-up__btnSubmit">Создать</button>
+                    <button type="submit" name="create" disabled class="pop-up__btnSubmit pop-up__btnSubmit_inactive">Создать</button>
                 </form>
             </div>
         </div>
@@ -89,7 +89,9 @@
             </div>
         </div>
     </div>
+<script src="js/initialCards.js"></script>
 <script src="js/index.js"></script>
 <script src="js/validate.js"></script>
+
 </body>
 </html>

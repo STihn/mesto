@@ -1,4 +1,5 @@
 
+// функция установки слушателей на формы 
 function enableValidation(options) {
     const allformElement = Array.from(document.querySelectorAll(options.formSelector));
     allformElement.forEach(function(form) {
@@ -8,32 +9,35 @@ function enableValidation(options) {
         setEventListeners(form, options);
     });
 };
-
+// функция установки слушателей на инпуты
 function setEventListeners(form, options) {
     const inputList = Array.from(form.querySelectorAll(options.inputSelector));
     const buttonElement = form.querySelector(options.submitButtonSelector);
-    toggleButtonState(inputList, buttonElement, options);
     inputList.forEach(function(input) {
         input.addEventListener('input', function() {
             isValid(form, input, options);
             toggleButtonState(inputList, buttonElement, options);
         });
     });
+    
 };
 
+// фукнция получает информацию о валидности/не валидности
+//  и после добавляет/убирает стили с ошибками инпутам и атрибут disabled для кнопки
 function toggleButtonState(inputList, buttonElement, options) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(options.inactiveButtonClass);
-        buttonElement.setAttribute('disabled', true);
-    } else {
         buttonElement.classList.remove(options.inactiveButtonClass);
         buttonElement.removeAttribute('disabled');
-        }
+    } else {
+        buttonElement.classList.add(options.inactiveButtonClass);
+        buttonElement.setAttribute('disabled', true);
+    }
 };
 
+// функция проверяет инпуты формы на валидность
 function hasInvalidInput(inputList) {
-    return inputList.some(function(input) {
-      return input.validity.valid == false;
+    return inputList.every(function(input) {
+        return input.validity.valid;
     });
 };
 
@@ -44,21 +48,20 @@ function isValid(form, input, options) {
         hideInputError(form, input, options);
     } else {
         showInputError(form, input, input.validationMessage, options);
-      
     }
 };
 
 // Функция, которая добавляет класс с ошибкой
-function showInputError(formElement, input, errorMessage, options) {
-    const formError = formElement.querySelector(`#${input.id}-error`);
+function showInputError(form, input, errorMessage, options) {
+    const formError = form.querySelector(`#${input.id}-error`);
     input.classList.add(options.inputErrorClass);
     formError.classList.add(options.errorClass);
     formError.textContent = errorMessage;
 };
   
   // Функция, которая удаляет класс с ошибкой
-function hideInputError(formElement, input, options) {
-    const formError = formElement.querySelector(`#${input.id}-error`);
+function hideInputError(form, input, options) {
+    const formError = form.querySelector(`#${input.id}-error`);
     input.classList.remove(options.inputErrorClass);
     formError.classList.remove(options.errorClass);
     formError.textContent = '';
