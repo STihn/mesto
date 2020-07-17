@@ -21,7 +21,6 @@ function setEventListeners(form, options) {
     });
     
 };
-
 // фукнция получает информацию о валидности/не валидности
 //  и после добавляет/убирает стили с ошибками инпутам и атрибут disabled для кнопки
 function toggleButtonState(inputList, buttonElement, options) {
@@ -33,14 +32,12 @@ function toggleButtonState(inputList, buttonElement, options) {
         buttonElement.setAttribute('disabled', true);
     }
 };
-
 // функция проверяет инпуты формы на валидность
 function hasInvalidInput(inputList) {
     return inputList.every(function(input) {
         return input.validity.valid;
     });
 };
-
  // Функция, которая проверяет валидность поля
 function isValid(form, input, options) {
     //   Если поле не проходит валидацию, покажем ошибку
@@ -50,7 +47,6 @@ function isValid(form, input, options) {
         showInputError(form, input, input.validationMessage, options);
     }
 };
-
 // Функция, которая добавляет класс с ошибкой
 function showInputError(form, input, errorMessage, options) {
     const formError = form.querySelector(`#${input.id}-error`);
@@ -58,8 +54,7 @@ function showInputError(form, input, errorMessage, options) {
     formError.classList.add(options.errorClass);
     formError.textContent = errorMessage;
 };
-  
-  // Функция, которая удаляет класс с ошибкой
+// Функция, которая удаляет класс с ошибкой
 function hideInputError(form, input, options) {
     const formError = form.querySelector(`#${input.id}-error`);
     input.classList.remove(options.inputErrorClass);
@@ -67,7 +62,7 @@ function hideInputError(form, input, options) {
     formError.textContent = '';
 };
 
-obj = {
+const validationConfig = {
     formSelector: '.pop-up__form',
     inputSelector: '.pop-up__input',
     submitButtonSelector: '.pop-up__btnSubmit',
@@ -75,4 +70,5 @@ obj = {
     inputErrorClass: 'pop-up__input_type_error',
     errorClass: 'pop-up__input-error_active'
 }
-enableValidation(obj);
+
+enableValidation(validationConfig);
