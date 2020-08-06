@@ -18,17 +18,17 @@ const profileName = document.querySelector('.profile__name');
 const profileSpecialty = document.querySelector('.profile__specialty');
 const profileAddButton = document.querySelector('.profile__addButton');
 const elements = document.querySelector('.elements');
-const showImg = document.querySelector('.pop-up_img');
+export const showImg = document.querySelector('.pop-up_img');
 const btnCloseImage = showImg.querySelector('.pop-up__btnClose');
-const getPathImg = document.querySelector('.pop-up__image');
-const getNameImg = document.querySelector('.pop-up__preview');
+export const getPathImg = document.querySelector('.pop-up__image');
+export const getNameImg = document.querySelector('.pop-up__preview');
 const validationConfig = {
     inputSelector: '.pop-up__input',
     submitButtonSelector: '.pop-up__btnSubmit',
     inactiveButtonClass: 'pop-up__btnSubmit_inactive',
     inputErrorClass: 'pop-up__input_type_error',
     errorClass: 'pop-up__input-error_active'
-}
+};
 
 const formValidator = new FormValidator(validationConfig,'.pop-up__form');
 formValidator.enableValidation();
@@ -55,7 +55,7 @@ function modalWindowAddCard() {
     buttonElement.setAttribute('disabled', true);
 };
 // Функция открытия модальных окн
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add('pop-up_opened');
     document.addEventListener('keydown', escClousePopup);
 };
