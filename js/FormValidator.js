@@ -4,7 +4,6 @@ export class FormValidator {
         this._options = options;
         this._form = form;
     }
-
     // метод установки слушателей на формы 
     enableValidation() {
         const allformElement = Array.from(document.querySelectorAll(this._form));
@@ -16,8 +15,7 @@ export class FormValidator {
 
             this._setEventListeners(form);
         });
-    };
-
+    }
     // метод установки слушателей на инпуты
     _setEventListeners(form) {
         const inputList = Array.from(form.querySelectorAll(this._options.inputSelector));
@@ -30,7 +28,6 @@ export class FormValidator {
             });
         });
     };    
-
     // метод получает информацию о валидности/не валидности
     //  и после добавляет/убирает стили с ошибками инпутам и атрибут disabled для кнопки
     _toggleButtonState(inputList, buttonElement) {
@@ -38,18 +35,19 @@ export class FormValidator {
             buttonElement.classList.remove(this._options.inactiveButtonClass);
             buttonElement.removeAttribute('disabled');
         } else {
-            buttonElement.classList.add(this._options.inactiveButtonClass);
-            buttonElement.setAttribute('disabled', true);
+            this.disabledButtonState(buttonElement);
         }
-    };
-
+    }
+    disabledButtonState(buttonElement) {
+        buttonElement.classList.add(this._options.inactiveButtonClass);
+        buttonElement.setAttribute('disabled', true);
+    }
     // метод проверяет инпуты формы на валидность
     _hasInvalidInput(inputList) {
         return inputList.every(function(input) {
             return input.validity.valid;
-        });
-    };
-
+        })
+    }
     // метод, который проверяет валидность поля
     _isValid(form, input) {
     //  Если поле не проходит валидацию, покажем ошибку
@@ -58,8 +56,7 @@ export class FormValidator {
         } else {
             this._showInputError(form, input, input.validationMessage);
         }
-    };
-
+    }
     // метод, который добавляет класс с ошибкой
     _showInputError(form, input, errorMessage) {
         const formError = form.querySelector(`#${input.id}-error`);
@@ -67,8 +64,7 @@ export class FormValidator {
         input.classList.add(this._options.inputErrorClass);
         formError.classList.add(this._options.errorClass);
         formError.textContent = errorMessage;
-    };
-
+    }
     // метод, который удаляет класс с ошибкой
     _hideInputError(form, input) {
         const formError = form.querySelector(`#${input.id}-error`);
@@ -76,6 +72,6 @@ export class FormValidator {
         input.classList.remove(this._options.inputErrorClass);
         formError.classList.remove(this._options.errorClass);
         formError.textContent = '';
-    };
+    }
 }
 

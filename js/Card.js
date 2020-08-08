@@ -21,7 +21,7 @@ export class Card {
         this._element.querySelector('.element__text').textContent = this._name;
         this._element.querySelector('.element__image').src = this._link;
 
-        if(this._link == ''){
+        if(this._link === ''){
             this._element.querySelector('.element__image').alt = 'Картинка не загрузилась';
         } else {
             this._element.querySelector('.element__image').alt = this._name;
@@ -32,22 +32,21 @@ export class Card {
     // метод меняет состаяния кнопки "Like"
     _btnLikeCard() {
         this.classList.toggle('element__btnLike_active');
-    };
+    }
     // метод удаления карточки
     _deleteCard() {
         this.parentNode.remove();
-    };
+    }
     // метод увелечение изображения карточки
     _zoomImg() {
         openPopup(showImg);
         getPathImg.setAttribute('src', this.getAttribute('src'));
         getNameImg.textContent = this.getAttribute('alt');
-    };
+    }
     // метод установки слушателей на кнопки "like",удаление карточки и увелечение изображения у карточки 
     _setEventListeners() {
         this._element.querySelector('.element__btnLike').addEventListener('click', this._btnLikeCard);
         this._element.querySelector('.element__btnDelete').addEventListener('click', this._deleteCard);
         this._element.querySelector('.element__image').addEventListener('click', this._zoomImg);
-    };
-    
+    }
 }
