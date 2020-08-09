@@ -54,7 +54,6 @@ function modalWindowAddCard() {
     openPopup(popUpEditCard);
     formElementAddCard.reset();
     
-    const formValidator = new FormValidator(validationConfig,'.pop-up__form')
     formValidator.disabledButtonState(buttonElement);
 }
 // Функция открытия модальных окн
@@ -103,7 +102,7 @@ function formSubmitAddCard(evt) {
     };
     const card = new Card(item, '#card');
     const cardElement = card.generateCard();
-    
+
     elements.prepend(cardElement);
 
     closePopup(popUpEditCard);
@@ -112,12 +111,7 @@ function formSubmitAddCard(evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 formElementAddCard.addEventListener('submit', formSubmitAddCard);
 
-// Функция закрытия модального окна увеличенного изображения
-function closeImage() {
-    closePopup(document.querySelector('.pop-up_opened'));
-}
-
-btnCloseImage.addEventListener('click', closeImage);
+btnCloseImage.addEventListener('click', () => closePopup(showImg));
 
 // Функция закрытия модального окна при клике по фону
 allPopUp.forEach(function(popUp) {
