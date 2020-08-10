@@ -34,8 +34,10 @@ const validationConfig = {
 };
 
 
-const formValidator = new FormValidator(validationConfig,'.pop-up__form');
-formValidator.enableValidation();
+const formValidatorEditProfile = new FormValidator(validationConfig, formElement);
+formValidatorEditProfile.enableValidation();
+const formValidatorAddCard = new FormValidator(validationConfig, formElementAddCard);
+formValidatorAddCard.enableValidation();
 
 // Перебор массива и добавление карточек
 initialCards.forEach(function(item) {
@@ -54,7 +56,7 @@ function modalWindowAddCard() {
     openPopup(popUpEditCard);
     formElementAddCard.reset();
     
-    formValidator.disabledButtonState(buttonElement);
+    formValidatorAddCard.disabledButtonState(buttonElement);
 }
 // Функция открытия модальных окн
 export function openPopup(popup) {

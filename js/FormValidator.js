@@ -6,15 +6,12 @@ export class FormValidator {
     }
     // метод установки слушателей на формы 
     enableValidation() {
-        const allformElement = Array.from(document.querySelectorAll(this._form));
 
-        allformElement.forEach((form) => {
-            form.addEventListener('submit', function(evt) {
-                evt.preventDefault();
-            });
+        this._form.addEventListener('submit', function(evt) {
+            evt.preventDefault();
+        })
 
-            this._setEventListeners(form);
-        });
+        this._setEventListeners(this._form);
     }
     // метод установки слушателей на инпуты
     _setEventListeners(form) {
@@ -27,7 +24,7 @@ export class FormValidator {
                 this._toggleButtonState(inputList, buttonElement);
             });
         });
-    };    
+    }    
     // метод получает информацию о валидности/не валидности
     //  и после добавляет/убирает стили с ошибками инпутам и атрибут disabled для кнопки
     _toggleButtonState(inputList, buttonElement) {
