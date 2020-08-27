@@ -1,8 +1,9 @@
-import { openPopup, showImg, getPathImg, getNameImg } from './index.js';
+
 export class Card {
-    constructor(data, selector) {
+    constructor({ data, handleCardClick}, selector) {
         this._name = data.name;
         this._link = data.link;
+        this._handleCardClick = handleCardClick;
         this._selector = selector;
     }
     // метод создания новый карточки
@@ -37,16 +38,12 @@ export class Card {
     _deleteCard() {
         this.parentNode.remove();
     }
-    // метод увелечение изображения карточки
-    _zoomImg() {
-        openPopup(showImg);
-        getPathImg.setAttribute('src', this.getAttribute('src'));
-        getNameImg.textContent = this.getAttribute('alt');
-    }
     // метод установки слушателей на кнопки "like",удаление карточки и увелечение изображения у карточки 
     _setEventListeners() {
         this._element.querySelector('.element__btnLike').addEventListener('click', this._btnLikeCard);
         this._element.querySelector('.element__btnDelete').addEventListener('click', this._deleteCard);
-        this._element.querySelector('.element__image').addEventListener('click', this._zoomImg);
+        this._element.querySelector('.element__image').addEventListener('click', () => {
+            this._handleCardClick(this._name, this._link);
+        });
     }
 }
