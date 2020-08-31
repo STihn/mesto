@@ -1,4 +1,4 @@
-import { getPathImg, getNameImg } from '../constants.js';
+import { pathImg, nameImg } from '../pages/index.js';
 import { Popup } from './Popup.js';
 
 
@@ -9,9 +9,8 @@ export class PopupWithImage extends Popup {
 
     // метод увелечение изображения карточки
     open(name, link) {
-        getPathImg.src = link;
-        getNameImg.textContent = name;
+        pathImg.src = link;
+        nameImg.textContent = name;
         super.open();
-        super.setEventListeners();
     }
 }

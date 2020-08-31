@@ -6,6 +6,7 @@ export class Card {
         this._handleCardClick = handleCardClick;
         this._selector = selector;
     }
+    
     // метод создания новый карточки
     _getTemplate() {
         const cardElement = document.querySelector(this._selector).content
