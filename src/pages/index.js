@@ -71,20 +71,15 @@ const popupEditProfile =  new PopupWithForm (popUpEditProfile , {handleFormSubmi
 });
 popupEditProfile.setEventListeners();
 
-const popupProfile = new Popup(popUpEditProfile);
-
-const popupCard = new Popup(popUpEditCard);
-
-
 buttonEditProfile.addEventListener('click', () => {
-    popupProfile.open();
+    popupEditProfile.open();
     const userInputList = userInfo.getUserInfo();
     nameInput.value = userInputList.name;
     jobInput.value = userInputList.job;
 });
 
 profileAddButton.addEventListener('click', () => {
-    popupCard.open();
+    popupAddCard.open();
     formElementAddCard.reset();
     formValidatorAddCard.disabledButtonState(buttonElement);
 });
