@@ -22,7 +22,9 @@ export class Popup {
     }
     // Установка слушателей при клике на оверлей(по фону) и закрытие модального окна
     setEventListeners(){
-        this._popupSelector.querySelector('.pop-up__btnClose').addEventListener('click', () => {this.close()});
+        this._popupSelector.querySelector('.pop-up__btnClose').addEventListener('click', () => {
+            this.close()
+        });
         this._popupSelector.addEventListener('click', (evt) => {
             if(evt.target.classList.contains('pop-up_opened')) {
                 this.close();

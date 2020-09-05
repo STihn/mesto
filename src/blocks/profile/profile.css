@@ -6,6 +6,7 @@
 @import url(__editButton/profile__editButton.css);
 @import url(__specialty/profile__specialty.css);
 @import url(__addButton/profile__addButton.css);
+@import url(__btnUserpic/profile__btnUserpic.css);
 
 .profile {
     display: flex;

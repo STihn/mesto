@@ -5,6 +5,7 @@
     height: 19px;
     border: none;
     align-self: center;
+    margin-bottom: 3px;
 }
 
 .element__btnLike:hover {

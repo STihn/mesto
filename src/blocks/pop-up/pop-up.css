@@ -12,6 +12,9 @@
 @import url(__input-error/pop-up__input-error.css);
 @import url(__input-error/_active/pop-up__input-error_active.css);
 @import url(__btnSubmit/_inactive/pop-up__btnSubmit_inactive.css);
+@import url(__form/_toRemove/pop-up__form_toRemove.css);
+@import url(__heading/_bottom/pop-up__heading_bottom.css);
+@import url(__btnSubmit/_bottom/pop-up__btnSubmit_bottom.css);
 
 .pop-up {
     position: fixed;
