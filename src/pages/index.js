@@ -39,6 +39,7 @@ const profileUserpic = document.querySelector('.profile__userpic');
 const popUpEditUserpic = document.querySelector('.pop-up_userpic');
 const formElementEditUserpic = document.querySelector('.pop-up__form-editUserpic');
 const popUptoRemove = document.querySelector('.pop-up_toRemove');
+const buttonElementAvatar = formElementEditUserpic.querySelector('.pop-up__btnSubmit');
 let userId = 0;
 
 
@@ -56,11 +57,19 @@ const popupWithSubmit = new PopupWithSubmit(popUptoRemove);
 popupWithSubmit.setEventListeners();
 
 function handleCardClass(item) {
-    const card = new Card( { data: item, handleCardClick: (name, link) => {
-        popupWithImage.open(name, link);
+    const card = new Card( { data: item, 
+        handleCardClick: (name, link) => {
+            popupWithImage.open(name, link);
         },
         handleDeleteClick: (cardId, element) => {
-            popupWithSubmit.handleDeleteCard(cardId, element, api);
+            popupWithSubmit.open();
+            popupWithSubmit.handleDeleteCard(() => {
+                api.deleteCard(cardId).then(() => {
+                    element.remove();
+                }).finally(()=>{
+                    popupWithSubmit.close();
+                })
+            })
         },
         handleLike: (cardId, element) => {
             if(!element.querySelector('.element__btnLike').classList.contains('element__btnLike_active')) {
@@ -86,30 +95,31 @@ const api = new Api ({
     }
 });
 
-api.getInitialCards().then((data) => {
-    const section = new Section( { data, renderer: (item) => {
-            section.addItem(handleCardClass(item));
-        }
-    }, elements);
-
-    section.renderItems();
-});
-
-api.getUserProfile()
-    .then((data) => {
+Promise.all([ api.getUserProfile(), api.getInitialCards() ])
+    .then(([data, initialCards]) => {
         userInfo.setUserInfo(data);
         userId = data._id;
+
+        const section = new Section( { initialCards, renderer: (item) => {
+                section.addItem(handleCardClass(item));
+            }
+        }, elements);
+
+    section.renderItems();
+    })
+    .catch((err) => {
+      console.log(err);
     });
 
-
 const popupAddCard =  new PopupWithForm (popUpEditCard , {handleFormSubmit: (item) => {
-        renderLoading(buttonElement, true, 'Сохранение..');
+        renderLoading(buttonElementCard, true, 'Сохранение..');
 
         api.createCard(item).then((item) => {
             elements.prepend(handleCardClass(item));
-        })
-
-        renderLoading(buttonElement, false, 'Создать');
+        }).finally(() => {
+            renderLoading(buttonElementCard, false, 'Создать');
+            popupAddCard.close();
+        });
     }
 });
 popupAddCard.setEventListeners();
@@ -117,13 +127,14 @@ popupAddCard.setEventListeners();
 const userInfo = new UserInfo(profileName, profileSpecialty, profileUserpic);
 
 const popupEditProfile =  new PopupWithForm (popUpEditProfile , {handleFormSubmit: (data) => {
-        renderLoading(buttonElement, true, 'Сохранение..');
+        renderLoading(buttonElementAvatar, true, 'Сохранение..');
 
         api.editProfile(data).then((data) => {
             userInfo.setUserInfo(data);
+        }).finally(() => {
+            renderLoading(buttonElementAvatar, false, 'Сохранить');
+            popupEditProfile.close();
         });
-
-        renderLoading(buttonElement, false, 'Сохранить');
     }
 });
 popupEditProfile.setEventListeners();
@@ -133,7 +144,6 @@ buttonEditProfile.addEventListener('click', () => {
     const userInputList = userInfo.getUserInfo();
     nameInput.value = userInputList.name;
     jobInput.value = userInputList.about;
-    
 });
 
 profileAddButton.addEventListener('click', () => {
@@ -146,8 +156,10 @@ const avatarPopup = new PopupWithForm(popUpEditUserpic, {handleFormSubmit: (data
         renderLoading(buttonElement, true, 'Сохранение..');
         api.editAvatar(data).then((data) => {
             userInfo.setUserInfo(data);
-        });
-        renderLoading(buttonElement, false, 'Сохранить');
+        }).finally(() => {
+            renderLoading(buttonElement, false, 'Сохранить');
+            avatarPopup.close();
+        }); 
     }
 })
 avatarPopup.setEventListeners();

@@ -2,22 +2,26 @@ import { Popup } from "./Popup.js";
 
 export class  PopupWithSubmit extends Popup {
     constructor(popupSelector) {
-        super(popupSelector)
+        super(popupSelector);
     }
     
     setEventListeners() {
         super.setEventListeners();
         this._popupSelector.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            super.close(); 
+            this._formSubmit()
         });
     }
-    
-    handleDeleteCard(cardId, element, api) {
+
+    handleDeleteCard(handleDelete) {
+        this._formSubmit = handleDelete;
+    }
+
+    open() {
         super.open();
-        api.deleteCard(cardId).then(() => {
-            element.remove();
-        });
-        super.close(); 
+    }
+
+    close() {
+        super.close();
     }
 }

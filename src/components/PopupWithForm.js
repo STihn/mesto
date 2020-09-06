@@ -11,6 +11,10 @@ export class PopupWithForm extends Popup {
         super.open();
     }
 
+    close() {
+        super.close();
+    }
+
     _getInputValues() {
         this._allInputForm = Array.from(this._popupSelector.querySelectorAll('.pop-up__input'));
 
@@ -25,7 +29,6 @@ export class PopupWithForm extends Popup {
     _formSubmit(evt){
         evt.preventDefault();
         this._handleFormSubmit( this._getInputValues() );
-        super.close();
     }
 
     setEventListeners() {
